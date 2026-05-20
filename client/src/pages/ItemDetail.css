@@ -1,0 +1,167 @@
+.detail-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title-row h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.badge-lg {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.detail-grid {
+  display: flex;
+  gap: 2rem;
+}
+
+.detail-main {
+  flex: 2;
+}
+
+.detail-sidebar {
+  flex: 1;
+}
+
+.p-6 {
+  padding: 2rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  background-color: var(--bg-color);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.verification-box {
+  background-color: rgba(33, 158, 188, 0.05);
+  border: 1px solid rgba(33, 158, 188, 0.2);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+}
+
+.flex-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.flex-row h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--primary-color);
+}
+
+.flex-row p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Chat Styles */
+.chat-card {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+}
+
+.chat-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--surface-color);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-message {
+  max-width: 80%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.chat-message p {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.chat-time {
+  font-size: 0.7rem;
+  color: rgba(0,0,0,0.5);
+  display: block;
+  text-align: right;
+}
+
+.chat-message.received {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+.chat-message.sent {
+  background-color: var(--primary-color);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+
+.chat-message.sent .chat-time {
+  color: rgba(255,255,255,0.7);
+}
+
+.chat-input-area {
+  padding: 1rem;
+  background-color: white;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
