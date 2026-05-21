@@ -1,20 +1,38 @@
-const express = require('express');
-const cors = require('cors');
+// server.js (Entry point setup)
 require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+
+// DB Connection
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB error:', err));
 
 // Middleware
-app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  credentials: true
+}));
 
-// Basic Route
-app.get('/', (req, res) => {
-  res.send('Lost and Found API is running...');
+// Passport
+require('./config/passport');
+app.use(passport.initialize());
+
+// Routes
+app.use('/api/auth', require('./routes/auth.route'));
+
+// Error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Something went wrong!' });
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
