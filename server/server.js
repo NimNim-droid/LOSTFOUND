@@ -5,8 +5,11 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const cron = require('node-cron');
 
 const app = express();
+const startCronJobs = require('./utils/cronJob.util');
+startCronJobs();
 
 // DB Connection
 mongoose.connect(process.env.MONGODB_URI)
